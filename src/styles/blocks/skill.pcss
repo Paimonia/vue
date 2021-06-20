@@ -1,22 +1,17 @@
 .skill {
   position: relative;
-  width: 166px;
-  height: 166px;
-
-  @include tablets {
-    width: 135px;
-    height: 135px;
-  }
+  width: 162px;
+  height: 162px;
 }
 
 .skill__circle {
   fill: transparent;
   &_under {
-    stroke: #eaeaea;
+    stroke: rgba(70, 78, 98, 0.2);
     stroke-width: 5px;
   }
   &_above {
-    stroke-width: 12px;
+    stroke-width: 10px;
     stroke-dasharray: 251;
     stroke-dashoffset: 100;
   }
@@ -31,8 +26,4 @@
   font-size: 18px;
   color: rgba($text-color, .5);
   padding: 14px;
-
-  @include phones {
-    font-size: 16px;
-  }
 }

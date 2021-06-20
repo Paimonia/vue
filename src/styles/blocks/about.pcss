@@ -44,7 +44,24 @@
   color: $text-color;
 }
 
+.about__text-info {
+  font-weight: 600;
+}
+
 .about__ps {
   font-style: italic;
   margin-bottom: 36px;
+  position: relative;
+
+  &:after {
+    background: svg-load('about.svg', fill=rgba(219, 2, 0, 0.8), width=27px, height=50px) left top no-repeat;
+
+    content: '';
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: -50px;
+    width: 27px;
+    height: 50px;
+  }
 }

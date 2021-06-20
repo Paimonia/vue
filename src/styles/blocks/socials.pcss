@@ -7,6 +7,9 @@
       border: 1px solid currentColor;
       border-radius: 50%;
       margin-right: 19px;
+        &:hover, &:active, &:focus {
+          border: 1px solid $hover;
+        }
     }
     .socials__link {
       display: block;
@@ -37,4 +40,12 @@
   width: 25px;
   height: 25px;
   fill: $text-color;
+}
+
+.socials__link:hover .socials__icon, .socials__link:focus .socials__icon, .socials__link:active .socials__icon {
+  fill: $hover;
+}
+
+.socials__link, .socials__icon {
+  display: block;
 }
