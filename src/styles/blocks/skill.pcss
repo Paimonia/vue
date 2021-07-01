@@ -2,22 +2,28 @@
   position: relative;
   width: 162px;
   height: 162px;
+  @include phones {
+    width: 130px;
+    height: 130px;
+  }
 }
 
 .skill__circle {
   fill: transparent;
-  &_under {
+
+  &--layer--under {
     stroke: rgba(70, 78, 98, 0.2);
     stroke-width: 5px;
   }
-  &_above {
+
+  &--layer--above {
     stroke-width: 10px;
     stroke-dasharray: 251;
-    stroke-dashoffset: 100;
+    stroke-dashoffset: 120;
   }
 }
 
-.skill__circle-text {
+.skill__title {
   position: absolute;
   top: 50%;
   left: 50%;

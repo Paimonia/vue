@@ -1,7 +1,18 @@
 .middle-section {
-  padding: 140px 0;
+  position: relative;
+  padding: 120px 0 80px;
+}
 
-  @include phones {
-    padding: 90px 0;
-  }
+.middle-section__triangles-top {
+  height: 100px;
+  position: absolute;
+  bottom: 100%;
+  width: 100%;
+}
+
+.middle-section__triangles-bottom {
+  height: 100px;
+  position: absolute;
+  top: 100%;
+  width: 100%;
 }

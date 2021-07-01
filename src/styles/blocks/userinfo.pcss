@@ -1,8 +1,17 @@
 .userinfo {
-  text-align: center;
-  @include desktop {
-    display: flex;
-    text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100%;
+
+
+  @include tablets {
+    text-align: center;
+  flex-direction: column;
+  }
+  @include phones {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
@@ -12,11 +21,17 @@
   font-weight: 600;
   margin-bottom: 25px;
   line-height: 1.6;
-  @include desktop {
-    text-align: right;
-    margin-bottom: 0;
-    padding-top: 8px;
-    margin-right: 5%;
+  text-align: right;
+  margin-right: 62px;
+  padding-top: 10px;
+  @include tablets {
+    margin-right: 0;
+    text-align: center;
+  }
+  @include phones {
+    margin-right: 0;
+    text-align: center;
+    font-size: 14px;
   }
 }
 
@@ -28,5 +43,10 @@
 .userinfo__name {
   font-weight: 800;
   font-size: 72px;
+  line-height: 1;
   line-height: 0.8;
+  flex-basis: 200px;
+  @include phones {
+    font-size: 36px;
+  }
 }

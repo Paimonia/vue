@@ -1,10 +1,14 @@
+.user__data {
+  width: 100%;
+}
+
 .user__avatar {
   display: flex;
   justify-content: center;
   margin-bottom: 70px;
 }
 
-.user__avatar-wrapper {
+.user__avatar-style {
   width: 200px;
   height: 200px;
   overflow: hidden;
@@ -14,7 +18,7 @@
   flex-shrink: 0;
 }
 
-.user__table {
+.user__data {
   font-weight: 600;
   width: 100%;
 
@@ -22,11 +26,22 @@
     padding-bottom: 15px;
   }
 
-  tr:last-child td {
+  .user__data-row:last-child td {
     padding-bottom: 0;
   }
 }
 
-.user__table-title {
+.user__data-title {
   color: rgba($text-color, .3);
+  @include phones {
+    
+    text-align: left;
+    padding-right: 15px;
+  }
+}
+.user__data-content {
+  @include phones {
+    
+    text-align: right;
+  }
 }
