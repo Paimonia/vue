@@ -1,0 +1,12 @@
+.hamburger {
+    display:none;
+    width:30px;
+    height: 28px;
+    background: svg-load('menu.svg', fill=$text-color, width=30px, height=25px) left top no-repeat;
+    &:hover, &:focus, &:active {
+        background: svg-load('menu.svg', fill=$hover, width=30px, height=25px) left top no-repeat;
+    }
+    @include tablets {
+        display:block;
+    }
+}

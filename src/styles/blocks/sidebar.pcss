@@ -1,0 +1,49 @@
+.sidebar {
+
+    display:none;
+    position:absolute;
+    right:0;
+    top:0;
+    width:100%;
+    height:100vh;
+    background: #fff;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    @include tablets {
+        display: none;
+        width: 330px;
+    }
+}
+
+.sidebar__container {
+    width:80%;
+}
+
+.sidebar__container .menu__list {
+    flex-direction:column;
+    margin-bottom: 100px;
+}
+
+.sidebar__container .menu__item {
+    margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.sidebar__close {
+    position:absolute;
+    top: 30px;
+    right: 30px;
+    display: block;
+    width:22px;
+    height: 23px;
+    background: svg-load('cross.svg', fill=$text-color, width=20px, height=20px) left top no-repeat;
+    &:hover, &:focus, &:active {
+        background: svg-load('cross.svg', fill=$hover, width=20px, height=20px) left top no-repeat;
+    }
+}
+
+.active {
+    display: flex;
+}

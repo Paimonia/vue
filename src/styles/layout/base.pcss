@@ -1,3 +1,12 @@
+html {
+  @include desktop {
+    font-size: 15px;
+  }
+  @include tablets {
+    font-size: 14px;
+  }
+}
+
 body,
 html {
   height: 100%;
@@ -16,16 +25,18 @@ body {
   overflow: hidden;
   min-height: 100%;
   position: relative;
+  min-width: 320px;
 }
 
 .container {
   margin: 0 auto;
-  width:1500px;
-}
-
-.fullscreen-section {
-  height: 100vh;
-  min-height: 650px;
+  max-width: 1480px;
+  width: 95%;
+  position: relative;
+  @include phones {
+    min-width: 290px;
+    width: 85%;
+  }
 }
 
 button {
@@ -56,11 +67,6 @@ h6 {
 p {
   margin: 0;
   padding: 0;
-}
-
-button[type="button"] {
-  cursor: pointer;
-  background-color: transparent;
 }
 
 a {

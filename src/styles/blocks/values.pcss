@@ -1,8 +1,10 @@
 .values {
-  margin-bottom: 114px;
-
+  position: relative;
+  @include tablets {
+    margin-bottom: 60px;
+  }
   @include phones {
-    margin-bottom: 75px;
+  
   }
 }
 
@@ -14,12 +16,13 @@
   &:before {
     content: "";
     position: absolute;
+    z-index:1;
     background: url('~images/decor/bag.jpg') left bottom / contain no-repeat;
     display: block;
     bottom: 5%;
     height: 79%;
     width: 69%;
-    left: -45px;
+    left: -8%;
     @include tablets {
       bottom: 0;
       left: 50%;
@@ -36,54 +39,74 @@
 
 .values__wrapper {
   position: relative;
+  z-index: 2;
 }
 
 .values__title {
   margin-bottom: 82px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  @include tablets {
+    text-align: center;
+  }
+  @include phones {
+    text-align: left;
+    margin-bottom: 20px;
+  }
 }
 
 .values__title-container {
   width: 38%;
   margin-left: 6%;
-  @include desktop {
-    width: 42%;
-    margin-left: 0;
-  }
-  @include tablets {
-    width: 68%;
-    text-align: center;
-  }
-  @include phones {
-    width: 100%;
-    margin-left: 0;
-    text-align: left;
-  }
 }
 
 .values__title-text {
   font-size: 30px;
   font-weight: 700;
   margin-bottom: 55px;
+  
+  @include tablets {
+    width: 33%;
+    margin-bottom: 25px;
+  }
+  @include phones {
+    width: 100%;
+    font-size: 24px;
+  }
 }
 
 .values__content {
   color: rgba($text-color, .5);
   font-weight: 600;
   line-height: 1.8;
+  max-width: 54%;
+  @include phones {
+    max-width: 100%;
+    font-size: 14px;
+  }
 }
 
 .values__widget {
   display: flex;
-  justify-content: flex-end;
-  @include tablets {
+  position: relative;
+  padding-left: 32%;
+  @include phones {
+    display: flex;
     justify-content: center;
+    padding: 0;
+  }
+  @include tablets {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
   }
 }
 
 .values__widget-container {
-  width: 56%;
+  width: 66%;
+
   @include tablets {
     width: 95%;
   }
