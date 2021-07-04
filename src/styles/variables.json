@@ -5,5 +5,6 @@
   "bp-desktop": "1200px",
   "bp-tablets": "768px",
   "bp-phones": "480px",
-  "hover": "#5500F2"
+  "hover": "#5500F2",
+  "errors-color": "#5500F2"
 }
