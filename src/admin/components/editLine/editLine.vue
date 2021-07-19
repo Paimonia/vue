@@ -4,14 +4,16 @@
       <div class="text">{{value}}</div>
       <div class="icon">
         <icon symbol="pencil" grayscale @click="editmode = true"></icon>
+        <icon symbol="trash" grayscale @click="$emit('remove', title)"></icon>
       </div>
     </div>
     <div v-else class="title">
       <div class="input">
         <app-input
+          v-model="title"
           placeholder="Название новой группы"
           :value="value"
-          :errorText="errorText"
+          :errorMessage="validation.firstError('title')"
           @input="$emit('input', $event)"
           @keydown.native.enter="onApprove"
           autofocus="autofocus"
@@ -23,7 +25,7 @@
           <icon symbol="tick" @click="onApprove"></icon>
         </div>
         <div class="button-icon">
-          <icon symbol="cross" @click="$emit('remove')"></icon>
+          <icon symbol="cross"  @click="editmode = false"></icon>
         </div>
       </div>
     </div>
@@ -31,7 +33,16 @@
 </template>
 
 <script>
+  import icon from "../icon";
+  import appInput from "../input";
+  import { Validator, mixin as ValidatorMixin } from "simple-vue-validator";
 export default {
+  mixins: [ValidatorMixin],
+  validators: {
+    "title": (value) => {
+      return Validator.value(value).required("Не может быть пустым");
+    },
+  },
   props: {
     value: {
       type: String,
@@ -51,7 +62,8 @@ export default {
     };
   },
   methods: {
-    onApprove() {
+    async onApprove() {
+      if (await this.$validate() === false) return;
       if (this.value.trim() === "") return false;
       if (this.title.trim() === this.value.trim()) {
         this.editmode = false;
@@ -61,8 +73,8 @@ export default {
     },
   },
   components: {
-    icon: () => import("components/icon"),
-    appInput: () => import("components/input"),
+    icon,
+    appInput
   },
 };
 </script>

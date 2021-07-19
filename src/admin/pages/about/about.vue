@@ -1,9 +1,9 @@
 <template>
-  <div class="about-page-component">
+  <div class="about-page-component page-component">
     <div class="page-content">
       <div class="container" v-if="categories.length">
-        <div class="header">
-          <div class="title">Блок "Обо мне"</div>
+        <div class="page-header">
+          <div class="page-title">Блок "Обо мне"</div>
           <iconed-button
             type="iconed"
             v-if="emptyCatIsShown === false"
@@ -16,12 +16,14 @@
             <category 
               @remove="emptyCatIsShown = false" 
               @approve="createCategory"
+              @remove-category="removeCategory"
+              @edit-category="editCategory"
               empty 
             />
           </li>
           <li class="item" v-for="category in categories" :key="category.id">
-            <category 
-              :title="category.category" 
+          <category 
+              :title="category.category"
               :skills="category.skills" 
               @create-skill="createSkill($event, category.id)"
               @edit-skill="editSkill"
@@ -40,13 +42,13 @@
 
 <script>
 import button from "../../components/button";
-import category from "../../components/category";
+// import category from "../../components/category";
 import { mapActions, mapState } from "vuex";
 
 export default {
   components: {
     iconedButton: button,
-    category,
+    category: () => import("../../components/category")
   },
   data() {
     return {
@@ -62,6 +64,8 @@ export default {
     ...mapActions({
       createCategoryAction: "categories/create",
       fetchCategoriesAction: "categories/fetch",
+      removeCategoryAction: "categories/remove",
+      editCategoryAction: "categories/edit",
       addSkillAction: "skills/add",
       removeSkillAction: "skills/remove",
       editSkillAction: "skills/edit",
@@ -90,7 +94,14 @@ export default {
       } catch (error) {
         console.log(error.message); 
       }
-    }
+    },
+    removeCategory(categoryTitle) {
+      this.removeCategoryAction(categoryTitle);
+    },
+    async editCategory(categoryTitle) {
+      await this.editCategoryAction(categoryTitle);
+      categoryTitle.editmode = false;
+    },
   },
   created() {
     this.fetchCategoriesAction();

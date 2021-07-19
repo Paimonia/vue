@@ -33,8 +33,9 @@ module.exports = (env, argv) => {
     options: {
       presets: ["@babel/preset-env"],
       plugins: [
-      "@babel/plugin-syntax-dynamic-import",
-      "@babel/plugin-transform-runtime"],
+        "@babel/plugin-transform-runtime",
+        "@babel/plugin-syntax-dynamic-import"
+      ],
     },
   };
 

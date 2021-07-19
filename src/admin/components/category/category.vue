@@ -4,7 +4,8 @@
       slot="title"
       v-model="categoryTitle"
       :editModeByDefault="empty"
-      @remove="$emit('remove', $event)"
+      @remove="$emit('remove-category', $event)"
+      @edit="$emit('edit-category', $event)"
       @approve="$emit('approve', $event)"
     />
     <template slot="content">
